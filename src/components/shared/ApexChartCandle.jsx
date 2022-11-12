@@ -180,6 +180,11 @@ class CandleStickChart extends React.Component {
             enabled: false,
           },
           opposite: true,
+          labels: {
+            formatter: function (val) {
+              return "$" + Math.floor(val);
+            },
+          },
         },
       },
     };
