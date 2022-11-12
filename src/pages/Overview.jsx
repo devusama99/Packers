@@ -24,13 +24,13 @@ export default function Overview() {
             </IconButton>
           </div>
         </Grid>
-        <Grid item sx={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <CampaignCard />
         </Grid>
-        <Grid item sx={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <CampaignCard />
         </Grid>
-        <Grid item sx={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <CampaignCard />
         </Grid>
         <Grid item xs={12} lg={6}>
