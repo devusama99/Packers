@@ -1,17 +1,69 @@
+$theme-colors: (
+  "primary": #8489fc,
+  "light": #f2f2f2,
+  "danger": #f90000,
+  "dark": #232323,
+  "warning": #c9b02b,
+);
+
 * {
   padding: 0;
   margin: 0;
 }
+td {
+  vertical-align: middle;
+}
 .App {
-  min-height: 100vh;
-  background-image: url("https://railsware.com/blog/wp-content/uploads/2019/07/Why-we-use-ReactJS-for-our-projects-Illustration.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: #fcfbfc;
+  .mh-100vh {
+    min-height: 100vh;
+  }
+  .text-muted {
+    opacity: 60%;
+  }
+  .login-page {
+    .login-circle-1 {
+      width: 250px;
+    }
+    .login-circle-2 {
+      width: 210px;
+    }
+  }
+  .drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 17%;
+  }
+  .nav-item {
+    cursor: pointer;
+  }
+  .nav-item-active {
+    box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.07);
+    background-color: #fff;
+    border-radius: 0px 20px 20px 0px;
+    position: relative;
+
+    ::before {
+      content: "";
+      height: 40px;
+      width: 5px;
+      border-radius: 0px 5px 5px 0px;
+      background: map-get($theme-colors, "primary");
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
 }
 
-$theme-colors: (
-  "info": tomato,
-  "danger": teal,
-);
+.MuiSelect-icon {
+  fill: #fff !important;
+}
+.MuiSelect-select {
+  color: #fff !important;
+}
 
 @import "~bootstrap/scss/bootstrap";
