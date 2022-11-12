@@ -2,6 +2,7 @@ import { Grid, IconButton, MenuItem, Typography } from "@mui/material";
 import { useState } from "react";
 import { BsFilter } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import CandleStickChart from "../components/shared/ApexChartCandle";
 import CampaignCard from "../components/shared/CampaignCard";
 import CampaignCardApproval from "../components/shared/CampaignCardApprove";
 import CustomizedSelect from "../components/shared/Select";
@@ -60,11 +61,7 @@ export default function Overview() {
               ))}
             </CustomizedSelect>
           </div>
-          <img
-            src={require("../assets/graph.png")}
-            alt="graph"
-            width={"100%"}
-          />
+          <CandleStickChart />
         </Grid>
         <Grid item xs={12} lg={6}>
           <div className="d-flex align-items-center justify-content-between my-2">

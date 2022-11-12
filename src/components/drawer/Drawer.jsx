@@ -15,7 +15,6 @@ export default function DrawerCustom() {
         </IconButton>
         <Drawer anchor={"left"} open={state} onClose={toggleDrawer}>
           <div onClick={() => console.log(state)}>
-            {state ? "true" : "false"}
             <DrawerList />
           </div>
         </Drawer>

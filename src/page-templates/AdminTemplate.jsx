@@ -25,7 +25,7 @@ export default function AdminTemplate() {
           </nav>
         </Grid>
         <Grid item xs={12} lg={10} className="m-0">
-          <Container maxWidth="xl" className="py-md-3 mh-100vh">
+          <Container maxWidth="xl" className="py-md-3 mb-5 mh-100vh">
             <nav className=" py-md-2 mt-2 ">
               <div className="d-flex align-items-center justify-content-between">
                 <div

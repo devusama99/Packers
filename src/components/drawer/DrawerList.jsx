@@ -73,7 +73,7 @@ export default function DrawerList() {
             {" "}
             <ListItem
               className={`p-3 px-4 nav-item ${
-                activeLink === "overview" ? "nav-item-active " : ""
+                activeLink === "overview" ? "nav-item-active " : "text-muted"
               }`}
             >
               <div style={{ width: "50px" }}>
@@ -90,7 +90,7 @@ export default function DrawerList() {
             {" "}
             <ListItem
               className={`p-3 px-4 nav-item ${
-                activeLink === "users" ? "nav-item-active" : ""
+                activeLink === "users" ? "nav-item-active" : "text-muted"
               }`}
             >
               <div style={{ width: "50px" }}>
@@ -110,7 +110,7 @@ export default function DrawerList() {
             {" "}
             <ListItem
               className={`p-3 px-4 nav-item ${
-                activeLink === "campaigns" ? "nav-item-active" : ""
+                activeLink === "campaigns" ? "nav-item-active" : "text-muted"
               }`}
             >
               <div style={{ width: "50px" }}>
@@ -127,7 +127,7 @@ export default function DrawerList() {
             {" "}
             <ListItem
               className={`p-3 px-4 nav-item ${
-                activeLink === "wallet" ? "nav-item-active" : ""
+                activeLink === "wallet" ? "nav-item-active" : "text-muted"
               }`}
             >
               <div style={{ width: "50px" }}>
@@ -147,7 +147,9 @@ export default function DrawerList() {
             {" "}
             <ListItem
               className={`p-3 px-4 nav-item ${
-                activeLink === "funds-processing" ? "nav-item-active" : ""
+                activeLink === "funds-processing"
+                  ? "nav-item-active"
+                  : "text-muted"
               }`}
             >
               <div style={{ width: "50px" }}>
@@ -167,7 +169,7 @@ export default function DrawerList() {
             {" "}
             <ListItem
               className={`p-3 px-4 nav-item ${
-                activeLink === "warnings" ? "nav-item-active" : ""
+                activeLink === "warnings" ? "nav-item-active" : "text-muted"
               }`}
             >
               <div style={{ width: "50px" }}>
@@ -190,7 +192,7 @@ export default function DrawerList() {
             {" "}
             <ListItem
               className={`p-3 px-4 nav-item ${
-                activeLink === "settings" ? "nav-item-active" : ""
+                activeLink === "settings" ? "nav-item-active" : "text-muted"
               }`}
             >
               <div style={{ width: "50px" }}>
@@ -210,7 +212,7 @@ export default function DrawerList() {
             {" "}
             <ListItem
               className={`p-3 px-4 nav-item ${
-                activeLink === "profile" ? "nav-item-active" : ""
+                activeLink === "profile" ? "nav-item-active" : "text-muted"
               }`}
             >
               <div style={{ width: "50px" }}>
@@ -226,7 +228,7 @@ export default function DrawerList() {
         </List>
       </div>
       <List sx={{ paddingRight: 3 }}>
-        <Link to={""} className="text-decoration-none text-dark">
+        <Link to={""} className="text-decoration-none text-muted">
           {" "}
           <ListItem className={`p-3 px-4 mr-3 nav-item `}>
             <div style={{ width: "50px" }}>
