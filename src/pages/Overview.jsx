@@ -1,7 +1,7 @@
 import { Grid, IconButton, MenuItem, Typography } from "@mui/material";
 import { useState } from "react";
 import { BsFilter } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, ScrollRestoration } from "react-router-dom";
 import CandleStickChart from "../components/shared/ApexChartCandle";
 import CampaignCard from "../components/shared/CampaignCard";
 import CampaignCardApproval from "../components/shared/CampaignCardApprove";
@@ -11,6 +11,7 @@ export default function Overview() {
   const [month, setMonth] = useState("january");
   return (
     <>
+      <ScrollRestoration />
       <Grid container spacing={3}>
         <Grid
           item

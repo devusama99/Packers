@@ -10,6 +10,7 @@ import {
 import SearchFeild from "../components/shared/SearchFeild";
 import Table from "react-bootstrap/Table";
 import TableActions from "../components/users/TableActions";
+import { ScrollRestoration } from "react-router-dom";
 
 const data = new Array(10).fill(0).map(() => ({
   fullName: "Shaheer Ahmad",
@@ -106,6 +107,7 @@ export default function Users() {
   }, [setData]);
   return (
     <>
+    <ScrollRestoration/>
       <Typography variant="h6">Users</Typography>
       <div className=" d-flex align-items-center justify-content-start">
         <Container maxWidth="md" className="m-0 p-0 mt-3">

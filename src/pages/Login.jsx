@@ -1,11 +1,12 @@
 import { Button, Container, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, ScrollRestoration } from "react-router-dom";
 import Footer from "../components/shared/Footer";
 import TextFeildCustom from "../components/shared/TextFeild";
 
 export default function Login() {
   return (
     <>
+      <ScrollRestoration />
       <div className="mh-100vh d-flex align-items-center login-page">
         <Container
           maxWidth="xs"

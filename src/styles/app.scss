@@ -1,6 +1,6 @@
 $theme-colors: (
   "primary": #8489fc,
-  "light": #f2f2f2,
+  "light": #fcfbfc,
   "danger": #f90000,
   "dark": #232323,
   "warning": #c9b02b,
@@ -23,6 +23,9 @@ td {
   background-color: #fcfbfc;
   .mh-100vh {
     min-height: 100vh;
+  }
+  .nav-top {
+    opacity: 1 !important;
   }
   .text-muted {
     opacity: 60%;
@@ -61,6 +64,14 @@ td {
       top: 50%;
       left: 0;
       transform: translateY(-50%);
+    }
+  }
+  .wallet-img {
+    @media only screen and (max-width: 600px) {
+      width: 70px;
+    }
+    @media only screen and (max-width: 450px) {
+      width: 60px;
     }
   }
 }

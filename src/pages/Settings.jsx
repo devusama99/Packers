@@ -4,10 +4,12 @@ import { BsPerson } from "react-icons/bs";
 import { MdLockOutline } from "react-icons/md";
 import { AiFillBank } from "react-icons/ai";
 import CustomSwitch from "../components/shared/Switch";
+import { ScrollRestoration } from "react-router-dom";
 
 export default function Settings() {
   return (
     <Grid container spacing={3}>
+      <ScrollRestoration />
       <Grid item xs={12}>
         <Typography variant="h5">Settings</Typography>
       </Grid>

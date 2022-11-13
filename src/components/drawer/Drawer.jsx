@@ -13,7 +13,12 @@ export default function DrawerCustom() {
         <IconButton onClick={() => toggleDrawer()}>
           <Menu color="dark" />
         </IconButton>
-        <Drawer anchor={"left"} open={state} onClose={toggleDrawer}>
+        <Drawer
+          anchor={"left"}
+          open={state}
+          onClose={toggleDrawer}
+          sx={{ backdropFilter: "blur(5px)" }}
+        >
           <div onClick={() => console.log(state)}>
             <DrawerList />
           </div>

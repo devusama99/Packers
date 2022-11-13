@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <RouterProvider router={router} />
+        <RouterProvider router={router}></RouterProvider>
       </ThemeProvider>
     </div>
   );

@@ -25,8 +25,18 @@ export default function AdminTemplate() {
           </nav>
         </Grid>
         <Grid item xs={12} lg={10} className="m-0">
-          <Container maxWidth="xl" className="py-md-3 mb-5 mh-100vh">
-            <nav className=" py-md-2 mt-2 ">
+          <Container maxWidth="xl" className="py-md-3 mb-5 mh-100vh ">
+            <div
+              className=" py-md-2 mt-2 nav-top"
+              style={{
+                position: "sticky",
+                backgroundColor: "rgba(256,256,256,0.4)",
+                top: 0,
+                opacity: 1,
+                zIndex: 10,
+                backdropFilter: "blur(5px)",
+              }}
+            >
               <div className="d-flex align-items-center justify-content-between">
                 <div
                   className="d-flex align-items-center w-100"
@@ -84,7 +94,7 @@ export default function AdminTemplate() {
                   <AccountMenu />
                 </div>
               </div>
-            </nav>
+            </div>
             <Divider sx={{ borderColor: " #bbb" }} className="my-2 mb-md-4" />
             <Outlet />
           </Container>

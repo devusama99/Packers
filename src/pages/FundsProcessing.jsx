@@ -3,6 +3,7 @@ import moment from "moment";
 import { BsFilter } from "react-icons/bs";
 import Table from "react-bootstrap/Table";
 import { AiOutlineDollarCircle } from "react-icons/ai";
+import { ScrollRestoration } from "react-router-dom";
 
 const data = new Array(10).fill(0).map(() => ({
   fullName: "Shaheer Hamad",
@@ -15,6 +16,7 @@ const data = new Array(10).fill(0).map(() => ({
 export default function FundsProcessing() {
   return (
     <>
+      <ScrollRestoration />
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <div className="d-flex align-items-center justify-content-between">

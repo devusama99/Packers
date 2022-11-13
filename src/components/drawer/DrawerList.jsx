@@ -16,8 +16,7 @@ import {
   BsBoxArrowRight,
 } from "react-icons/bs";
 import { IoWalletOutline, IoWallet } from "react-icons/io5";
-import { AiOutlineDollarCircle } from "react-icons/ai";
-import { HiCurrencyDollar } from "react-icons/hi2";
+import { AiOutlineDollarCircle, AiFillDollarCircle } from "react-icons/ai";
 import { Link, useLocation } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import { theme } from "../../styles/MUItheme";
@@ -156,7 +155,7 @@ export default function DrawerList() {
                 {activeLink !== "funds-processing" ? (
                   <AiOutlineDollarCircle size={25} />
                 ) : (
-                  <HiCurrencyDollar size={25} />
+                  <AiFillDollarCircle size={25} />
                 )}
               </div>
               <Typography>Funds Processing</Typography>

@@ -1,10 +1,12 @@
 import { PhotoCamera, LocationOn, Email, Phone } from "@mui/icons-material";
 import { Grid, Typography, Stack, IconButton, Divider } from "@mui/material";
 import { Link } from "react-router-dom";
+import { ScrollRestoration } from "react-router-dom";
 
 export default function Profile() {
   return (
     <>
+      <ScrollRestoration />
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Typography variant="h6">Profile</Typography>

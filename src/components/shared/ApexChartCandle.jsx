@@ -140,6 +140,19 @@ class CandleStickChart extends React.Component {
           type: "candlestick",
           toolbar: { show: false },
         },
+        grid: {
+          show: true, // you can either change hear to disable all grids
+          xaxis: {
+            lines: {
+              show: false, //or just here to disable only x axis grids
+            },
+          },
+          yaxis: {
+            lines: {
+              show: true, //or just here to disable only y axis
+            },
+          },
+        },
         plotOptions: {
           candlestick: {
             bar: {
@@ -166,6 +179,9 @@ class CandleStickChart extends React.Component {
           labels: {
             formatter: function (val) {
               return moment(val).format("dddd").substring(0, 1);
+            },
+            style: {
+              fontSize: 8,
             },
           },
           tooltip: {
