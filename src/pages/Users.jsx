@@ -17,85 +17,50 @@ const data = new Array(10).fill(0).map(() => ({
   email: "Shaheer@gmail.com",
   phoneNo: Math.floor(Math.random() * 100000000000),
   warnings: Math.floor(Math.random() * 4),
-  type: ["freelancer", "campaign-admin"][Math.floor(Math.random() * 2)],
+  type: ["customer", "driver"][Math.floor(Math.random() * 2)],
   id: Math.floor(Math.random() * 1000000),
   profileImg: "https://i.pravatar.cc/300",
 }));
 
 export default function Users() {
-  const userTypes = [
-    "all_users",
-    "freelancers",
-    "campaign_admin",
-    "warned_users",
-  ];
-  const [activeType, setActiveType] = useState("all_users");
+  const userTypes = ["customers", "drivers"];
+  const [activeType, setActiveType] = useState("customers");
   const [activeData, setActiveData] = useState(data);
 
   const setData = useCallback(() => {
-    if (activeType === "all_users") {
-      allUsers();
-    } else if (activeType === "freelancers") {
-      freelancers();
-    } else if (activeType === "campaign_admin") {
-      campaignAdmin();
-    } else if (activeType === "warned_users") {
-      warningsUsers();
+    if (activeType === "customers") {
+      customers();
+    } else if (activeType === "drivers") {
+      drivers();
     }
   }, [activeType]);
 
-  const allUsers = () => {
-    setActiveData([...data]);
+  const customers = () => {
+    setActiveData([...data.filter((item) => item.type === "customer")]);
   };
 
-  const freelancers = () => {
-    setActiveData([...data.filter((item) => item.type === "freelancer")]);
-  };
-
-  const campaignAdmin = () => {
-    setActiveData([...data.filter((item) => item.type === "campaign-admin")]);
-  };
-
-  const warningsUsers = () => {
-    setActiveData([...data.filter((item) => item.warnings)]);
+  const drivers = () => {
+    setActiveData([...data.filter((item) => item.type === "driver")]);
   };
 
   function getIcon(userTypes, activeType) {
     // eslint-disable-next-line
     switch (userTypes) {
-      case "all_users":
+      case "customers":
         return (
           <BsPeopleFill
             size={30}
             className={`${
-              activeType === "all_users" ? "text-white" : "text-primary"
+              activeType === "customers" ? "text-white" : "text-primary"
             }`}
           />
         );
-      case "freelancers":
+      case "drivers":
         return (
           <BsGlobe
             size={30}
             className={`${
-              activeType === "freelancers" ? "text-white" : "text-primary"
-            }`}
-          />
-        );
-      case "campaign_admin":
-        return (
-          <BsMegaphoneFill
-            size={30}
-            className={`${
-              activeType === "campaign_admin" ? "text-white" : "text-primary"
-            }`}
-          />
-        );
-      case "warned_users":
-        return (
-          <BsExclamationTriangleFill
-            size={30}
-            className={`${
-              activeType === "warned_users" ? "text-white" : "text-primary"
+              activeType === "drivers" ? "text-white" : "text-primary"
             }`}
           />
         );
@@ -107,7 +72,7 @@ export default function Users() {
   }, [setData]);
   return (
     <>
-    <ScrollRestoration/>
+      <ScrollRestoration />
       <Typography variant="h6">Users</Typography>
       <div className=" d-flex align-items-center justify-content-start">
         <Container maxWidth="md" className="m-0 p-0 mt-3">
@@ -163,13 +128,15 @@ export default function Users() {
                 <tbody>
                   {activeData.map((item, i) => (
                     <tr key={"data-row-" + i}>
-                      <td>
-                        <div className="d-flex align-items-center py-1">
-                          <Avatar src={item.profileImg} />
-                          <div className="m-1"></div>
-                          <Typography variant="body2">
-                            {item.fullName}
-                          </Typography>
+                      <td style={{ minWidth: "210px" }}>
+                        <div className="d-flex align-items-center justify-content-between py-1">
+                          <d className="d-flex align-items-center">
+                            <Avatar src={item.profileImg} />
+                            <div className="m-1"></div>
+                            <Typography variant="body2">
+                              {item.fullName}
+                            </Typography>
+                          </d>
                           <div
                             className={`d-flex align-items-end ${
                               item.warnings ? "d-block" : "d-none"
@@ -185,7 +152,10 @@ export default function Users() {
                           </div>
                         </div>
                       </td>
-                      <td className="align-items-center ">
+                      <td
+                        className="align-items-center "
+                        style={{ minWidth: "120px" }}
+                      >
                         <Typography variant="body2" className="text-muted">
                           {item.phoneNo}
                         </Typography>

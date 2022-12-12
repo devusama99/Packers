@@ -19,7 +19,7 @@ export default function DrawerCustom() {
           onClose={toggleDrawer}
           sx={{ backdropFilter: "blur(5px)" }}
         >
-          <div onClick={() => console.log(state)}>
+          <div onClick={toggleDrawer}>
             <DrawerList />
           </div>
         </Drawer>

@@ -1,9 +1,11 @@
 $theme-colors: (
-  "primary": #8489fc,
+  "primary": #2f2f2f,
   "light": #fcfbfc,
   "danger": #f90000,
   "dark": #232323,
   "warning": #c9b02b,
+  "info": #2a94f4,
+  "success": #57a471,
 );
 
 html {
@@ -20,7 +22,7 @@ td {
   vertical-align: middle;
 }
 .App {
-  background-color: #fcfbfc;
+  background-color: #f6f6f6;
   .mh-100vh {
     min-height: 100vh;
   }
@@ -49,9 +51,9 @@ td {
     cursor: pointer;
   }
   .nav-item-active {
-    box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.07);
-    background-color: #fff;
-    border-radius: 0px 20px 20px 0px;
+    // box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.07);
+    // background-color: #fff;
+    // border-radius: 0px 20px 20px 0px;
     position: relative;
 
     ::before {
@@ -59,7 +61,7 @@ td {
       height: 40px;
       width: 5px;
       border-radius: 0px 5px 5px 0px;
-      background: map-get($theme-colors, "primary");
+      background: map-get($theme-colors, "dark");
       position: absolute;
       top: 50%;
       left: 0;
@@ -74,8 +76,17 @@ td {
       width: 60px;
     }
   }
+  .h-85 {
+    height: 87%;
+  }
+  .chart-container {
+    box-shadow: 0px 30px 18px -11px rgba(0, 0, 0, 0.02);
+    border-radius: 13px;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
 }
-
 .MuiSelect-icon {
   fill: #fff !important;
 }
@@ -83,4 +94,6 @@ td {
   color: #fff !important;
 }
 
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 @import "~bootstrap/scss/bootstrap";

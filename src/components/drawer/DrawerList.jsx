@@ -15,7 +15,13 @@ import {
   BsGearFill,
   BsBoxArrowRight,
 } from "react-icons/bs";
-import { IoWalletOutline, IoWallet } from "react-icons/io5";
+import {
+  IoWalletOutline,
+  IoWallet,
+  IoReceiptOutline,
+  IoReaderSharp,
+  IoReceiptSharp,
+} from "react-icons/io5";
 import { AiOutlineDollarCircle, AiFillDollarCircle } from "react-icons/ai";
 import { Link, useLocation } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
@@ -29,11 +35,11 @@ export default function DrawerList() {
   const checkURL = useCallback(() => {
     if (pathname === "/admin") setActiveLink("overview");
     else if (pathname === "/admin/users") setActiveLink("users");
-    else if (pathname === "/admin/campaigns") setActiveLink("campaigns");
+    else if (pathname === "/admin/orders") setActiveLink("campaigns");
     else if (pathname === "/admin/wallet") setActiveLink("wallet");
     else if (pathname === "/admin/funds-processing")
       setActiveLink("funds-processing");
-    else if (pathname === "/admin/warnings") setActiveLink("warnings");
+    else if (pathname === "/admin/verifications") setActiveLink("warnings");
     else if (pathname === "/admin/settings") setActiveLink("settings");
     else if (pathname === "/admin/profile") setActiveLink("profile");
   }, [pathname]);
@@ -82,7 +88,7 @@ export default function DrawerList() {
                   <BsFillGridFill size={25} />
                 )}
               </div>
-              <Typography>Overview</Typography>
+              <Typography>Dashboard</Typography>
             </ListItem>
           </Link>
           <Link to={"/admin/users"} className="text-decoration-none text-dark">
@@ -99,13 +105,10 @@ export default function DrawerList() {
                   <BsPeopleFill size={25} />
                 )}
               </div>
-              <Typography>Users</Typography>
+              <Typography>Customers</Typography>
             </ListItem>
           </Link>
-          <Link
-            to={"/admin/campaigns"}
-            className="text-decoration-none text-dark"
-          >
+          <Link to={"/admin/orders"} className="text-decoration-none text-dark">
             {" "}
             <ListItem
               className={`p-3 px-4 nav-item ${
@@ -114,12 +117,12 @@ export default function DrawerList() {
             >
               <div style={{ width: "50px" }}>
                 {activeLink !== "campaigns" ? (
-                  <BsMegaphone size={20} />
+                  <IoReceiptOutline size={20} />
                 ) : (
-                  <BsMegaphoneFill size={20} />
+                  <IoReceiptSharp size={20} />
                 )}
               </div>
-              <Typography>Campaign</Typography>
+              <Typography>Orders</Typography>
             </ListItem>
           </Link>
           <Link to={"/admin/wallet"} className="text-decoration-none text-dark">
@@ -162,7 +165,7 @@ export default function DrawerList() {
             </ListItem>
           </Link>
           <Link
-            to={"/admin/warnings"}
+            to={"/admin/verifications"}
             className="text-decoration-none text-dark"
           >
             {" "}
@@ -178,7 +181,7 @@ export default function DrawerList() {
                   <BsExclamationTriangleFill size={20} />
                 )}
               </div>
-              <Typography>Warnings</Typography>
+              <Typography>Verifications</Typography>
             </ListItem>
           </Link>
         </List>

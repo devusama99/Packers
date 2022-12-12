@@ -52,19 +52,25 @@ export default function FundsProcessing() {
             <tbody>
               {data.map((item, i) => (
                 <tr key={"data-row-" + i}>
-                  <td>
+                  <td style={{ minWidth: "180px" }}>
                     <div className="d-flex align-items-center py-1">
                       <Avatar src={item.profileImg} />
                       <div className="m-1"></div>
                       <Typography variant="body2">{item.fullName}</Typography>
                     </div>
                   </td>
-                  <td className="align-items-center ">
+                  <td
+                    className="align-items-center "
+                    style={{ minWidth: "120px" }}
+                  >
                     <Typography variant="body2" className="text-muted">
                       {moment().format("DD MMM, YYYY")}
                     </Typography>
                   </td>
-                  <td className="align-items-center ">
+                  <td
+                    className="align-items-center "
+                    style={{ minWidth: "100px" }}
+                  >
                     <div className="d-flex align-items-center">
                       <AiOutlineDollarCircle
                         size={25}
@@ -75,7 +81,7 @@ export default function FundsProcessing() {
                       </Typography>
                     </div>
                   </td>
-                  <td>
+                  <td style={{ minWidth: "120px" }}>
                     <Typography variant="body2">{item.campaign}</Typography>
                   </td>
                   <td>
@@ -100,7 +106,7 @@ export default function FundsProcessing() {
                       </Button>
                     </div>
                   </td>
-                  <td>
+                  <td style={{ minWidth: "105px" }}>
                     <Button
                       size="small"
                       color="primary"

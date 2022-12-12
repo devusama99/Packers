@@ -13,13 +13,13 @@ import { Table } from "react-bootstrap";
 import { AiOutlineDollarCircle } from "react-icons/ai";
 import { BsChevronDown, BsCurrencyDollar, BsFilter } from "react-icons/bs";
 import { TbReceipt2 } from "react-icons/tb";
-import { ScrollRestoration } from "react-router-dom";
-import CandleStickChart from "../components/shared/ApexChartCandle";
+import { Link, ScrollRestoration } from "react-router-dom";
 import CustomizedSelectWhite from "../components/shared/SelectWhite";
 import TextFeildCustomWhite from "../components/shared/TextFeildWhite";
 import Profit from "../components/wallet/Profit";
 import CustomizedSelect from "../components/shared/Select";
 import { useState } from "react";
+import CandleStickChart from "../components/shared/ApexChartCandle";
 
 const paymentDetails = new Array(7).fill(0).map(() => ({
   name: "Shaheer Ahmad",
@@ -35,7 +35,7 @@ export default function Wallet() {
     <>
       <ScrollRestoration />
       <Grid container spacing={3}>
-        <Grid item xs={12} lg={8}>
+        <Grid item xs={12} lg={6}>
           <Grid container spacing={3}>
             <Grid item xs={6} sm={4}>
               <Box
@@ -92,7 +92,7 @@ export default function Wallet() {
               <Typography variant="h6">Wallet</Typography>
               <Divider className="w-100 my-1" sx={{ borderColor: "#bbb" }} />
             </Grid>
-            <Grid item xs={12} md={7}>
+            <Grid item xs={12}>
               <Box
                 sx={{
                   background: "#FFFFFF",
@@ -155,38 +155,7 @@ export default function Wallet() {
                 />
               </Box>
             </Grid>
-            <Grid item xs={12} md={5}>
-              <Box
-                sx={{
-                  boxShadow: "0px 4px 71px rgba(0, 0, 0, 0.04)",
-                  borderRadius: "10px",
-                }}
-                className="p-3 h-100 d-flex flex-column align-items-start justify-content-center bg-primary"
-              >
-                <Typography className="text-white">
-                  Withdrawal amount
-                </Typography>
-                <div className="d-flex mt-2 ">
-                  <CustomizedSelectWhite value="amount">
-                    <MenuItem value={"amount"}>Amount</MenuItem>
-                  </CustomizedSelectWhite>
-                  <TextFeildCustomWhite
-                    size="small"
-                    placeholder="Other Amount"
-                  />
-                </div>
-                <Button
-                  sx={{ borderRadius: 0.7 }}
-                  color="white"
-                  variant="contained"
-                  disableElevation
-                  className="text-capitalize text-primary py-2 mt-2"
-                  fullWidth
-                >
-                  Withdraw
-                </Button>
-              </Box>
-            </Grid>
+
             <Grid item xs={12}>
               <div className="d-flex align-items-center justify-content-between my-2">
                 <Typography variant="h6">Stats</Typography>
@@ -216,100 +185,55 @@ export default function Wallet() {
               </div>
               <CandleStickChart />
             </Grid>
-            <Grid item xs={12}>
-              <Typography variant="h6" className="mb-3">
-                Payment Details
-              </Typography>
-              <Table responsive>
-                <thead>
-                  <tr>
-                    <th>
-                      <Typography>Name</Typography>
-                    </th>
-                    <th>
-                      <Typography>Date</Typography>
-                    </th>
-                    <th>
-                      <Typography>Amount</Typography>
-                    </th>
-                    <th>
-                      <Typography>Order</Typography>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {paymentDetails.map((item, i) => (
-                    <tr key={"row-" + i}>
-                      <td style={{ minWidth: "180px" }}>
-                        <div className="d-flex align-items-center py-1">
-                          <Avatar src={item.profileImg} />
-                          <div className="m-1"></div>
-                          <Typography variant="body2">{item.name}</Typography>
-                        </div>
-                      </td>
-                      <td style={{ minWidth: "100px" }}>
-                        <Typography variant="body2" className="text-muted">
-                          {moment(item.paymentDate).format("DD MMM, YYYY")}
-                        </Typography>
-                      </td>
-                      <td style={{ minWidth: "120px" }}>
-                        <div className="d-flex align-items-center">
-                          <AiOutlineDollarCircle
-                            size={22}
-                            className="text-warning"
-                          />
-                          <Typography
-                            variant="body2"
-                            className="text-muted mx-1"
-                          >
-                            {moment(item.paymentDate).format("DD MMM, YYYY")}
-                          </Typography>
-                        </div>
-                      </td>
-                      <td>
-                        <Button
-                          size="small"
-                          variant="contained"
-                          className="text-capitalize"
-                          disableElevation
-                          color="success"
-                        >
-                          View
-                        </Button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} lg={4}>
+        <Grid item xs={12} md={6}>
           <div className="d-flex align-items-center justify-content-between">
-            <Typography variant="h6">Profit</Typography>
-            <div className="d-flex align-items-center">
-              <Typography variant="caption">All</Typography>
-              <IconButton sx={{ p: 0.4 }}>
-                <BsFilter />
-              </IconButton>
-            </div>
+            <Typography variant="h5" className="mb-3">
+              Fund Processing
+            </Typography>
+            <Link className="text-muted">
+              <Typography variant="caption">View Details</Typography>
+            </Link>
           </div>
-          <Profit />
-          <Profit />
-          <Profit />
-          <Profit />
-          <Profit />
-          <Profit />
-          <Profit />
-          <Profit />
-          <Profit />
-          <Profit />
-          <Button fullWidth className="text-capitalize">
-            <div className="d-flex align-items-center justify-content-center flex-column">
-              <Typography variant="caption">View more</Typography>
-              <BsChevronDown />
-            </div>
-          </Button>
+          <Table responsive>
+            <thead>
+              <tr>
+                <th>
+                  <Typography>Name</Typography>
+                </th>
+
+                <th>
+                  <Typography>Amount</Typography>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {paymentDetails.map((item, i) => (
+                <tr key={"row-" + i}>
+                  <td style={{ minWidth: "180px" }}>
+                    <div className="d-flex align-items-center py-1">
+                      <Avatar src={item.profileImg} />
+                      <div className="m-1"></div>
+                      <Typography variant="body2">{item.name}</Typography>
+                    </div>
+                  </td>
+
+                  <td style={{ minWidth: "120px" }}>
+                    <div className="d-flex align-items-center">
+                      <AiOutlineDollarCircle
+                        size={22}
+                        className="text-warning"
+                      />
+                      <Typography variant="body2" className="text-muted mx-1">
+                        {item.amount}
+                      </Typography>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
         </Grid>
       </Grid>
     </>

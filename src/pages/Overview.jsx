@@ -1,14 +1,17 @@
-import { Grid, IconButton, MenuItem, Typography } from "@mui/material";
+import { Box, Grid, IconButton, MenuItem, Typography } from "@mui/material";
 import { useState } from "react";
 import { BsFilter } from "react-icons/bs";
 import { Link, ScrollRestoration } from "react-router-dom";
-import CandleStickChart from "../components/shared/ApexChartCandle";
+import SlideScroll from "../components/overview/SlideScroll";
+import CandleStickChart from "../components/shared/ApexChartColumn";
+import RadialChart from "../components/shared/ApexChartRadial";
 import CampaignCard from "../components/shared/CampaignCard";
 import CampaignCardApproval from "../components/shared/CampaignCardApprove";
 import CustomizedSelect from "../components/shared/Select";
+import SubscribedUser from "../components/shared/SubscribedUser";
 
 export default function Overview() {
-  const [month, setMonth] = useState("january");
+  const [month, setMonth] = useState("total");
   return (
     <>
       <ScrollRestoration />
@@ -16,75 +19,102 @@ export default function Overview() {
         <Grid
           item
           xs={12}
-          className="d-flex align-items-center justify-content-between"
+          className="d-flex flex-column align-items-start justify-content-between"
         >
-          <Typography variant="h6">Recent Campaigns</Typography>
-          <div className="d-flex align-items-center">
-            <Typography variant="caption">Most Funded</Typography>
-            <IconButton>
-              <BsFilter size={20} />
-            </IconButton>
+          <Typography variant="h5">Good Morning Admin 👋🏻</Typography>
+          <Typography className="text-muted">
+            Have a look at recent activities
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <div className="d-flex align-items-center justify-content-between">
+            <Typography variant="h5">Active Orders</Typography>
+            <Link className="text-decoration-none text-muted">
+              <u>
+                <Typography variant="caption">See more</Typography>
+              </u>
+            </Link>
           </div>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CampaignCard />
+        <Grid item xs={12}>
+          <SlideScroll>
+            <div className="mx-1 d-flex ">
+              <CampaignCard /> <div className="px-2"></div>
+            </div>
+            <div className="mx-1 d-flex ">
+              <CampaignCard /> <div className="px-2"></div>
+            </div>
+            <div className="mx-1 d-flex ">
+              <CampaignCard /> <div className="px-2"></div>
+            </div>
+            <div className="mx-1 d-flex ">
+              <CampaignCard /> <div className="px-2"></div>
+            </div>
+            <div className="mx-1 d-flex ">
+              <CampaignCard /> <div className="px-1"></div>
+            </div>
+          </SlideScroll>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CampaignCard />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CampaignCard />
-        </Grid>
-        <Grid item xs={12} lg={6}>
-          <div className="d-flex align-items-center justify-content-between my-2">
-            <Typography variant="h6">Earnings</Typography>
+
+        <Grid item xs={12} lg={8}>
+          <div className="d-flex align-items-center justify-content-between mb-1">
+            <Typography variant="h5">Earnings</Typography>
             <CustomizedSelect
               onChange={(e) => setMonth(e.target.value)}
               value={month}
             >
-              {[
-                "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December",
-              ].map((item, i) => (
+              {["Total"].map((item, i) => (
                 <MenuItem value={item.toLowerCase()} key={"month" - i}>
                   {item}
                 </MenuItem>
               ))}
             </CustomizedSelect>
           </div>
-          <CandleStickChart />
-        </Grid>
-        <Grid item xs={12} lg={6}>
-          <div className="d-flex align-items-center justify-content-between my-2">
-            <Typography variant="h6">New Campaigns</Typography>
-            <Link to={"/campaigns"} className="text-primary">
-              <Typography variant="caption">View More</Typography>
-            </Link>
-          </div>
           <Grid container spacing={2}>
-            <Grid item xs={12} md={6}>
-              <CampaignCardApproval />
+            <Grid item xs={12} md={4}>
+              <div className="d-flex flex-column justify-content-between h-100 ">
+                <SubscribedUser />
+                <SubscribedUser />
+                <SubscribedUser />
+              </div>
             </Grid>
-            <Grid item xs={12} md={6}>
-              <CampaignCardApproval />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <CampaignCardApproval />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <CampaignCardApproval />
+            <Grid item xs={12} md={8}>
+              <Box className="p-3 chart-container bg-white  d-flex align-items-center justify-content-center h-100 ">
+                <div className="w-100">
+                  <CandleStickChart className="w-100" />
+                </div>
+              </Box>
             </Grid>
           </Grid>
+        </Grid>
+        <Grid item xs={12} lg={4} className="mb-0 pb-0 ">
+          <div className="d-flex align-items-center justify-content-between mb-1">
+            <Typography variant="h5">Statistics</Typography>
+            <CustomizedSelect
+              onChange={(e) => setMonth(e.target.value)}
+              value={month}
+              style={{ opacity: 0, cursor: "default", pointerEvents: "none" }}
+            >
+              {["Total"].map((item, i) => (
+                <MenuItem value={item.toLowerCase()} key={"month" - i}>
+                  {item}
+                </MenuItem>
+              ))}
+            </CustomizedSelect>
+          </div>
+          <div className="d-flex h-85">
+            <Grid container>
+              <Grid item xs={12}>
+                <Box className="p-3 chart-container bg-white  d-flex align-items-center justify-content-center h-100 ">
+                  <RadialChart
+                    series={[1, 3, 2]}
+                    labels={["Monthly", "Yearly", "Weekly"]}
+                    colors={["#35B368", "#FFB545", "#2F2F2F"]}
+                  />
+                </Box>
+              </Grid>
+            </Grid>
+          </div>
         </Grid>
       </Grid>
     </>
